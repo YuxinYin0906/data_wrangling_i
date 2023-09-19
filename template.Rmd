@@ -4,7 +4,30 @@ output: github_document
 date: "2023-09-19"
 ---
 
+Let's import the `FAS_litters.csv` csv using a relative path.
+
 ```{r}
+library(tidyverse)
+```
+
+```{r}
+litters_df = 
+  read_csv("data/FAS_litters.csv")
+
+litters_df = 
+  janitor::clean_names(litters_df) ##to clean up the names of the columns---convert spaces and uppercases to all lower cases and underscores(typical r name writing)
+
+
+```
+
+Import the same data set using an absolute path.
+
+```{r}
+litters_df_abs= 
+  read_csv("~/Desktop/data_wrangling_i/data/FAS_litters.csv")
+
+litters_df_abs = 
+  janitor::clean_names(litters_df_abs) 
 
 ```
 
