@@ -31,3 +31,47 @@ litters_df_abs =
 
 ```
 
+Import the `FAS_pups.csv` file using a relative path.
+
+```{r}
+pubs_df = 
+  read_csv("data/FAS_pups.csv")
+
+pubs_df = 
+  janitor::clean_names(pubs_df)
+```
+
+Import the same data set using an absolute path.
+
+```{r}
+pubs_df_abs= 
+  read_csv("~/Desktop/data_wrangling_i/data/FAS_pups.csv")
+
+pubs_df_abs = 
+  janitor::clean_names(pubs_df_abs) 
+```
+
+##Look at data
+
+```{r}
+litters_df
+
+head(litters_df)
+
+tail(litters_df)
+```
+
+You can use `View`
+
+```{r, eval=FALSE} 
+view(litters_df)
+##use eval = FALSE so it wouldn't include in the r markdown
+```
+
+look at data summary: 2 ways 
+
+```{r}
+str(litters_df)
+skimr::skim(litters_df) #with mean sd hist missing numbers
+```
+
