@@ -4,11 +4,13 @@ output: github_document
 date: "2023-09-19"
 ---
 
-Let's import the `FAS_litters.csv` csv using a relative path.
+
 
 ```{r}
 library(tidyverse)
 ```
+
+Let's import the `FAS_litters.csv` csv using a relative path.
 
 ```{r}
 litters_df = 
@@ -74,4 +76,36 @@ look at data summary: 2 ways
 str(litters_df)
 skimr::skim(litters_df) #with mean sd hist missing numbers
 ```
+
+
+## Options in `read_*`
+
+```{r}
+##litters_df = 
+ ## read_csv("data/FAS_litters.csv",
+           ##skip = 10, col_names = FALSE) ##skip is used to skip rows when first x rows are explaining the data variables 
+```
+
+
+look at NA values
+
+```{r}
+litters_df =
+  read_csv("data/FAS_litters.csv",
+           na = c("NA", 19))
+litters_df
+```
+
+
+column types: you can control the type of variables by changing num to char or otherwise
+
+```{r}
+litters_df =
+  read_csv("data/FAS_litters.csv",
+           col_types = 
+             cols(
+              `GD0 weight` = col_character() 
+             ))
+```
+
 
